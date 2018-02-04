@@ -1,0 +1,3 @@
+727
+name=item727
+сategory=cat7

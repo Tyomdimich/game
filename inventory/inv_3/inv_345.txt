@@ -1,0 +1,3 @@
+345
+name=item345
+сategory=cat3

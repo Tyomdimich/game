@@ -1,0 +1,3 @@
+830
+name=item830
+сategory=cat8

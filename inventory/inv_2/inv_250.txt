@@ -1,0 +1,3 @@
+250
+name=item250
+сategory=cat2

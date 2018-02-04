@@ -1,0 +1,3 @@
+828
+name=item828
+сategory=cat8

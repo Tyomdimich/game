@@ -1,0 +1,3 @@
+836
+name=item836
+сategory=cat8

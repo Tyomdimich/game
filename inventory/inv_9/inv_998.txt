@@ -1,0 +1,3 @@
+998
+name=item998
+сategory=cat9

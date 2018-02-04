@@ -1,0 +1,3 @@
+136
+name=item136
+сategory=cat1

@@ -1,0 +1,3 @@
+923
+name=item923
+сategory=cat9

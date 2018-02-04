@@ -1,0 +1,3 @@
+598
+name=item598
+сategory=cat5

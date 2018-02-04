@@ -1,0 +1,3 @@
+298
+name=item298
+сategory=cat2

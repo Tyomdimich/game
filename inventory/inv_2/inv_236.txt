@@ -1,0 +1,3 @@
+236
+name=item236
+сategory=cat2

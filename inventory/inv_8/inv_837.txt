@@ -1,0 +1,3 @@
+837
+name=item837
+сategory=cat8

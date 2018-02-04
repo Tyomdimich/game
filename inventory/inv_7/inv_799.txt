@@ -1,0 +1,3 @@
+799
+name=item799
+сategory=cat7

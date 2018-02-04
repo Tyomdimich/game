@@ -1,0 +1,3 @@
+687
+name=item687
+сategory=cat6

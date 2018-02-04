@@ -1,0 +1,3 @@
+222
+name=item222
+сategory=cat2

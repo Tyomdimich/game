@@ -1,0 +1,3 @@
+486
+name=item486
+сategory=cat4

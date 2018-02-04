@@ -1,0 +1,3 @@
+484
+name=item484
+сategory=cat4

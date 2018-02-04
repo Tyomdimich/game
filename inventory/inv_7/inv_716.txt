@@ -1,0 +1,3 @@
+716
+name=item716
+сategory=cat7

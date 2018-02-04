@@ -1,0 +1,3 @@
+524
+name=item524
+сategory=cat5

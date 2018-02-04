@@ -1,0 +1,3 @@
+272
+name=item272
+сategory=cat2

@@ -1,0 +1,3 @@
+404
+name=item404
+сategory=cat4

@@ -1,0 +1,3 @@
+359
+name=item359
+сategory=cat3

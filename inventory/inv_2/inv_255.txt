@@ -1,0 +1,3 @@
+255
+name=item255
+сategory=cat2

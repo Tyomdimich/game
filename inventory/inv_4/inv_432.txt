@@ -1,0 +1,3 @@
+432
+name=item432
+сategory=cat4

@@ -1,0 +1,3 @@
+508
+name=item508
+сategory=cat5

@@ -1,0 +1,3 @@
+306
+name=item306
+сategory=cat3

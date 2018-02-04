@@ -1,0 +1,3 @@
+353
+name=item353
+сategory=cat3

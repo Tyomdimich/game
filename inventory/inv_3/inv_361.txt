@@ -1,0 +1,3 @@
+361
+name=item361
+сategory=cat3

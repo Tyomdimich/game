@@ -1,0 +1,3 @@
+480
+name=item480
+сategory=cat4

@@ -1,0 +1,3 @@
+817
+name=item817
+сategory=cat8

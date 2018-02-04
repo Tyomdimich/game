@@ -1,0 +1,3 @@
+471
+name=item471
+сategory=cat4

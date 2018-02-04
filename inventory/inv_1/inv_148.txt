@@ -1,0 +1,3 @@
+148
+name=item148
+сategory=cat1

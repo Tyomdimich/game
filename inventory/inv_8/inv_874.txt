@@ -1,0 +1,3 @@
+874
+name=item874
+сategory=cat8

@@ -1,0 +1,3 @@
+955
+name=item955
+сategory=cat9

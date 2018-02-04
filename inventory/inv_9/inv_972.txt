@@ -1,0 +1,3 @@
+972
+name=item972
+сategory=cat9

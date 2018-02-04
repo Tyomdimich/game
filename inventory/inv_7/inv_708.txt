@@ -1,0 +1,3 @@
+708
+name=item708
+сategory=cat7

@@ -1,0 +1,3 @@
+624
+name=item624
+сategory=cat6

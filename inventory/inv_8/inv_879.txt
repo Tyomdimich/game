@@ -1,0 +1,3 @@
+879
+name=item879
+сategory=cat8

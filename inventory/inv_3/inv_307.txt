@@ -1,0 +1,3 @@
+307
+name=item307
+сategory=cat3

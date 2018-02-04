@@ -1,0 +1,3 @@
+758
+name=item758
+сategory=cat7

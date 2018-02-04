@@ -1,0 +1,3 @@
+742
+name=item742
+сategory=cat7

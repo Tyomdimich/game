@@ -1,0 +1,3 @@
+614
+name=item614
+сategory=cat6

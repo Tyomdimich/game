@@ -1,0 +1,3 @@
+565
+name=item565
+сategory=cat5

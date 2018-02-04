@@ -1,0 +1,3 @@
+620
+name=item620
+сategory=cat6

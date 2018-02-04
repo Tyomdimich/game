@@ -1,0 +1,3 @@
+150
+name=item150
+сategory=cat1

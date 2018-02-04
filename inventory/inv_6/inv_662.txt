@@ -1,0 +1,3 @@
+662
+name=item662
+сategory=cat6

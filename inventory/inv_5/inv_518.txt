@@ -1,0 +1,3 @@
+518
+name=item518
+сategory=cat5

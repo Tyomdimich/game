@@ -1,0 +1,3 @@
+990
+name=item990
+сategory=cat9

@@ -1,0 +1,3 @@
+690
+name=item690
+сategory=cat6

@@ -1,0 +1,3 @@
+376
+name=item376
+сategory=cat3

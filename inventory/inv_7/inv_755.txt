@@ -1,0 +1,3 @@
+755
+name=item755
+сategory=cat7

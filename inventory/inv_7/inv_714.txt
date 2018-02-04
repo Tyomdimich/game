@@ -1,0 +1,3 @@
+714
+name=item714
+сategory=cat7

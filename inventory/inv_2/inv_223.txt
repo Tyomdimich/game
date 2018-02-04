@@ -1,0 +1,3 @@
+223
+name=item223
+сategory=cat2

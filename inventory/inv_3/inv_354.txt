@@ -1,0 +1,3 @@
+354
+name=item354
+сategory=cat3

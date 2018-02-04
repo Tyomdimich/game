@@ -1,0 +1,3 @@
+269
+name=item269
+сategory=cat2

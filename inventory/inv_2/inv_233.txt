@@ -1,0 +1,3 @@
+233
+name=item233
+сategory=cat2

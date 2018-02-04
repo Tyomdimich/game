@@ -1,0 +1,3 @@
+111
+name=item111
+сategory=cat1

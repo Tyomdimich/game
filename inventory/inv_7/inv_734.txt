@@ -1,0 +1,3 @@
+734
+name=item734
+сategory=cat7

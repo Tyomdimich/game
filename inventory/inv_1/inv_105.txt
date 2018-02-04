@@ -1,0 +1,3 @@
+105
+name=item105
+сategory=cat1

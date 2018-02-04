@@ -1,0 +1,3 @@
+600
+name=item600
+сategory=cat6

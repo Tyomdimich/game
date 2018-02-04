@@ -1,0 +1,3 @@
+469
+name=item469
+сategory=cat4

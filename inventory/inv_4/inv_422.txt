@@ -1,0 +1,3 @@
+422
+name=item422
+сategory=cat4

@@ -1,0 +1,3 @@
+870
+name=item870
+сategory=cat8

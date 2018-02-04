@@ -1,0 +1,3 @@
+698
+name=item698
+сategory=cat6

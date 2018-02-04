@@ -1,0 +1,3 @@
+950
+name=item950
+сategory=cat9

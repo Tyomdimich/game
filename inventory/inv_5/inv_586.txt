@@ -1,0 +1,3 @@
+586
+name=item586
+сategory=cat5

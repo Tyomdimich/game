@@ -1,0 +1,3 @@
+176
+name=item176
+сategory=cat1

@@ -1,0 +1,3 @@
+713
+name=item713
+сategory=cat7

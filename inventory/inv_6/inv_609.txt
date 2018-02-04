@@ -1,0 +1,3 @@
+609
+name=item609
+сategory=cat6

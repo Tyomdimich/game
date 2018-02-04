@@ -1,0 +1,3 @@
+979
+name=item979
+сategory=cat9

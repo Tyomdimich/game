@@ -1,0 +1,3 @@
+587
+name=item587
+сategory=cat5

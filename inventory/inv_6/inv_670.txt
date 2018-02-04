@@ -1,0 +1,3 @@
+670
+name=item670
+сategory=cat6

@@ -1,0 +1,3 @@
+824
+name=item824
+сategory=cat8

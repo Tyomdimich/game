@@ -1,0 +1,3 @@
+389
+name=item389
+сategory=cat3

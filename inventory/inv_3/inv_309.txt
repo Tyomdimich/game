@@ -1,0 +1,3 @@
+309
+name=item309
+сategory=cat3

@@ -1,0 +1,3 @@
+473
+name=item473
+сategory=cat4

@@ -1,0 +1,3 @@
+531
+name=item531
+сategory=cat5

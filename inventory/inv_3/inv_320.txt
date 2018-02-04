@@ -1,0 +1,3 @@
+320
+name=item320
+сategory=cat3

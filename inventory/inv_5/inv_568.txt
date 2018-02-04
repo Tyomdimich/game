@@ -1,0 +1,3 @@
+568
+name=item568
+сategory=cat5

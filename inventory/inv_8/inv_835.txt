@@ -1,0 +1,3 @@
+835
+name=item835
+сategory=cat8

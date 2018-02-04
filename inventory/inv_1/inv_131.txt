@@ -1,0 +1,3 @@
+131
+name=item131
+сategory=cat1

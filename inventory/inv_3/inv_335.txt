@@ -1,0 +1,3 @@
+335
+name=item335
+сategory=cat3

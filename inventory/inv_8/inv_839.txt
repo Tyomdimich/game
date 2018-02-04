@@ -1,0 +1,3 @@
+839
+name=item839
+сategory=cat8

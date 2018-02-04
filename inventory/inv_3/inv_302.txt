@@ -1,0 +1,3 @@
+302
+name=item302
+сategory=cat3

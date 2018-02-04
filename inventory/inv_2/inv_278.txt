@@ -1,0 +1,3 @@
+278
+name=item278
+сategory=cat2

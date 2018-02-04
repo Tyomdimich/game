@@ -1,0 +1,3 @@
+333
+name=item333
+сategory=cat3

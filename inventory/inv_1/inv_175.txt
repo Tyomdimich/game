@@ -1,0 +1,3 @@
+175
+name=item175
+сategory=cat1

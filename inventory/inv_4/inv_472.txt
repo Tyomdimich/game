@@ -1,0 +1,3 @@
+472
+name=item472
+сategory=cat4

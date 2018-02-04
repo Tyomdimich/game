@@ -1,0 +1,3 @@
+945
+name=item945
+сategory=cat9

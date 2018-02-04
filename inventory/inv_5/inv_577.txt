@@ -1,0 +1,3 @@
+577
+name=item577
+сategory=cat5

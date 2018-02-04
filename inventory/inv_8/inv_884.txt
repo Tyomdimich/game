@@ -1,0 +1,3 @@
+884
+name=item884
+сategory=cat8

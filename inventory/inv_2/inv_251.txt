@@ -1,0 +1,3 @@
+251
+name=item251
+сategory=cat2

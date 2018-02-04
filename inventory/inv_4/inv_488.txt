@@ -1,0 +1,3 @@
+488
+name=item488
+сategory=cat4

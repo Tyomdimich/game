@@ -1,0 +1,3 @@
+367
+name=item367
+сategory=cat3

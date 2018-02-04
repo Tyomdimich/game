@@ -1,0 +1,3 @@
+752
+name=item752
+сategory=cat7

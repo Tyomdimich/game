@@ -1,0 +1,3 @@
+746
+name=item746
+сategory=cat7

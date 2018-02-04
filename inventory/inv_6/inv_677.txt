@@ -1,0 +1,3 @@
+677
+name=item677
+сategory=cat6

@@ -1,0 +1,3 @@
+808
+name=item808
+сategory=cat8

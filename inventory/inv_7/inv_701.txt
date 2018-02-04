@@ -1,0 +1,3 @@
+701
+name=item701
+сategory=cat7

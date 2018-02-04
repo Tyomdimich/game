@@ -1,0 +1,3 @@
+629
+name=item629
+сategory=cat6

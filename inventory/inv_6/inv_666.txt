@@ -1,0 +1,3 @@
+666
+name=item666
+сategory=cat6

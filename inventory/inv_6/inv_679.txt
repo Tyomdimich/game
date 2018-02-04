@@ -1,0 +1,3 @@
+679
+name=item679
+сategory=cat6

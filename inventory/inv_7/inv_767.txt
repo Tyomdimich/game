@@ -1,0 +1,3 @@
+767
+name=item767
+сategory=cat7

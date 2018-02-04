@@ -1,0 +1,3 @@
+364
+name=item364
+сategory=cat3

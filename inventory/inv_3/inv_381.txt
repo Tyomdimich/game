@@ -1,0 +1,3 @@
+381
+name=item381
+сategory=cat3

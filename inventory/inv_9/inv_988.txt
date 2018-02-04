@@ -1,0 +1,3 @@
+988
+name=item988
+сategory=cat9

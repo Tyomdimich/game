@@ -1,0 +1,3 @@
+709
+name=item709
+сategory=cat7

@@ -1,0 +1,3 @@
+864
+name=item864
+сategory=cat8

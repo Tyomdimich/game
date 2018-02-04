@@ -1,0 +1,3 @@
+174
+name=item174
+сategory=cat1

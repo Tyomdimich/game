@@ -1,0 +1,3 @@
+321
+name=item321
+сategory=cat3

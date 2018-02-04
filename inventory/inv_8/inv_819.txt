@@ -1,0 +1,3 @@
+819
+name=item819
+сategory=cat8

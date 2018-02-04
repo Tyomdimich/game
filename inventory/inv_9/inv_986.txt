@@ -1,0 +1,3 @@
+986
+name=item986
+сategory=cat9

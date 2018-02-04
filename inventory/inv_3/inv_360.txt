@@ -1,0 +1,3 @@
+360
+name=item360
+сategory=cat3

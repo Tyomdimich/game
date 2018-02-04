@@ -1,0 +1,3 @@
+643
+name=item643
+сategory=cat6

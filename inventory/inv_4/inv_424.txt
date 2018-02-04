@@ -1,0 +1,3 @@
+424
+name=item424
+сategory=cat4

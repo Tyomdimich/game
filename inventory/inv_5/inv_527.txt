@@ -1,0 +1,3 @@
+527
+name=item527
+сategory=cat5

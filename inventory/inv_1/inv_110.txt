@@ -1,0 +1,3 @@
+110
+name=item110
+сategory=cat1

@@ -1,0 +1,3 @@
+718
+name=item718
+сategory=cat7

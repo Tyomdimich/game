@@ -1,0 +1,3 @@
+766
+name=item766
+сategory=cat7

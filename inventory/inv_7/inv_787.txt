@@ -1,0 +1,3 @@
+787
+name=item787
+сategory=cat7

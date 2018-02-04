@@ -1,0 +1,3 @@
+503
+name=item503
+сategory=cat5

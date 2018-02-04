@@ -1,0 +1,3 @@
+452
+name=item452
+сategory=cat4

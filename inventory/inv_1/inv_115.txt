@@ -1,0 +1,3 @@
+115
+name=item115
+сategory=cat1

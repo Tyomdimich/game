@@ -1,0 +1,3 @@
+560
+name=item560
+сategory=cat5

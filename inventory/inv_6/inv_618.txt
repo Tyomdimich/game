@@ -1,0 +1,3 @@
+618
+name=item618
+сategory=cat6

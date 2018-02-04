@@ -1,0 +1,3 @@
+227
+name=item227
+сategory=cat2

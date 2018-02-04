@@ -1,0 +1,3 @@
+897
+name=item897
+сategory=cat8

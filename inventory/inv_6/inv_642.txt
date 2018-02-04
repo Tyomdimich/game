@@ -1,0 +1,3 @@
+642
+name=item642
+сategory=cat6

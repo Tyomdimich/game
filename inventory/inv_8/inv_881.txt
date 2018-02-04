@@ -1,0 +1,3 @@
+881
+name=item881
+сategory=cat8

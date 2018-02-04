@@ -1,0 +1,3 @@
+351
+name=item351
+сategory=cat3

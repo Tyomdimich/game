@@ -1,0 +1,3 @@
+290
+name=item290
+сategory=cat2

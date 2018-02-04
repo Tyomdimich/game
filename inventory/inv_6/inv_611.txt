@@ -1,0 +1,3 @@
+611
+name=item611
+сategory=cat6

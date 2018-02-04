@@ -1,0 +1,3 @@
+470
+name=item470
+сategory=cat4

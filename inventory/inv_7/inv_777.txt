@@ -1,0 +1,3 @@
+777
+name=item777
+сategory=cat7

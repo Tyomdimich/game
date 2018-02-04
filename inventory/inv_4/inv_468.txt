@@ -1,0 +1,3 @@
+468
+name=item468
+сategory=cat4

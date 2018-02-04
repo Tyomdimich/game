@@ -1,0 +1,3 @@
+664
+name=item664
+сategory=cat6

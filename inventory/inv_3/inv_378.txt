@@ -1,0 +1,3 @@
+378
+name=item378
+сategory=cat3

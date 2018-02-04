@@ -1,0 +1,3 @@
+238
+name=item238
+сategory=cat2

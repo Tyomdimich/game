@@ -1,0 +1,3 @@
+759
+name=item759
+сategory=cat7

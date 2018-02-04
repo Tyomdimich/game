@@ -1,0 +1,3 @@
+234
+name=item234
+сategory=cat2

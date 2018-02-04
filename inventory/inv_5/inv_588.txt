@@ -1,0 +1,3 @@
+588
+name=item588
+сategory=cat5

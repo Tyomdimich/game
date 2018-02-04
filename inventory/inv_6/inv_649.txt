@@ -1,0 +1,3 @@
+649
+name=item649
+сategory=cat6

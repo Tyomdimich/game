@@ -1,0 +1,3 @@
+621
+name=item621
+сategory=cat6

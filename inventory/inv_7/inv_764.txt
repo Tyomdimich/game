@@ -1,0 +1,3 @@
+764
+name=item764
+сategory=cat7

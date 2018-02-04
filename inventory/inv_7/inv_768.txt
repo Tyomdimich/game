@@ -1,0 +1,3 @@
+768
+name=item768
+сategory=cat7

@@ -1,0 +1,3 @@
+790
+name=item790
+сategory=cat7

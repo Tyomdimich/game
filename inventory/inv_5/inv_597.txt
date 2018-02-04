@@ -1,0 +1,3 @@
+597
+name=item597
+сategory=cat5

@@ -1,0 +1,3 @@
+349
+name=item349
+сategory=cat3

@@ -1,0 +1,3 @@
+572
+name=item572
+сategory=cat5

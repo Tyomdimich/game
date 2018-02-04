@@ -1,0 +1,3 @@
+318
+name=item318
+сategory=cat3

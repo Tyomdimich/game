@@ -1,0 +1,3 @@
+270
+name=item270
+сategory=cat2

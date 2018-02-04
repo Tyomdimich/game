@@ -1,0 +1,3 @@
+206
+name=item206
+сategory=cat2

@@ -1,0 +1,3 @@
+866
+name=item866
+сategory=cat8

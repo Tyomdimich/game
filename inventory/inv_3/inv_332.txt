@@ -1,0 +1,3 @@
+332
+name=item332
+сategory=cat3

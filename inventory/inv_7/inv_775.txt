@@ -1,0 +1,3 @@
+775
+name=item775
+сategory=cat7

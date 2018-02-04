@@ -1,0 +1,3 @@
+921
+name=item921
+сategory=cat9

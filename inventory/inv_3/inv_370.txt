@@ -1,0 +1,3 @@
+370
+name=item370
+сategory=cat3

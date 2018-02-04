@@ -1,0 +1,3 @@
+672
+name=item672
+сategory=cat6

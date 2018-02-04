@@ -1,0 +1,3 @@
+622
+name=item622
+сategory=cat6

@@ -1,0 +1,3 @@
+507
+name=item507
+сategory=cat5

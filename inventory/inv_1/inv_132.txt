@@ -1,0 +1,3 @@
+132
+name=item132
+сategory=cat1

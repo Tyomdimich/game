@@ -1,0 +1,3 @@
+296
+name=item296
+сategory=cat2

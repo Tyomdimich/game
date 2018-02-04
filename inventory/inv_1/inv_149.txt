@@ -1,0 +1,3 @@
+149
+name=item149
+сategory=cat1

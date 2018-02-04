@@ -1,0 +1,3 @@
+575
+name=item575
+сategory=cat5

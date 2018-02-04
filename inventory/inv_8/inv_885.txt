@@ -1,0 +1,3 @@
+885
+name=item885
+сategory=cat8

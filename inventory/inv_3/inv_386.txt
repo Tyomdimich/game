@@ -1,0 +1,3 @@
+386
+name=item386
+сategory=cat3

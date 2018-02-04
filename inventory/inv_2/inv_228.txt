@@ -1,0 +1,3 @@
+228
+name=item228
+сategory=cat2

@@ -1,0 +1,3 @@
+694
+name=item694
+сategory=cat6

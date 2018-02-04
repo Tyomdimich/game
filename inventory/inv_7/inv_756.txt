@@ -1,0 +1,3 @@
+756
+name=item756
+сategory=cat7

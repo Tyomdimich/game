@@ -1,0 +1,3 @@
+655
+name=item655
+сategory=cat6

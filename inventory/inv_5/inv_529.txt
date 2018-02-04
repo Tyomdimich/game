@@ -1,0 +1,3 @@
+529
+name=item529
+сategory=cat5

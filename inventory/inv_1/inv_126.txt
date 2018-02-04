@@ -1,0 +1,3 @@
+126
+name=item126
+сategory=cat1

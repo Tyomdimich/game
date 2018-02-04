@@ -1,0 +1,3 @@
+688
+name=item688
+сategory=cat6

@@ -1,0 +1,3 @@
+344
+name=item344
+сategory=cat3

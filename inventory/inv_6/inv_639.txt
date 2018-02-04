@@ -1,0 +1,3 @@
+639
+name=item639
+сategory=cat6

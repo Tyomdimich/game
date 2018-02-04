@@ -1,0 +1,3 @@
+805
+name=item805
+сategory=cat8

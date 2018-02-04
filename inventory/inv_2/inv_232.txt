@@ -1,0 +1,3 @@
+232
+name=item232
+сategory=cat2

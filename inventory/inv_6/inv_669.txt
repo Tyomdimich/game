@@ -1,0 +1,3 @@
+669
+name=item669
+сategory=cat6

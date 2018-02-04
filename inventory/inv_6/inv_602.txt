@@ -1,0 +1,3 @@
+602
+name=item602
+сategory=cat6

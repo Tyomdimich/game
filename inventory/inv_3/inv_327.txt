@@ -1,0 +1,3 @@
+327
+name=item327
+сategory=cat3

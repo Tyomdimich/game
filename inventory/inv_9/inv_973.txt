@@ -1,0 +1,3 @@
+973
+name=item973
+сategory=cat9

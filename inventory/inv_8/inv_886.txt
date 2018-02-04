@@ -1,0 +1,3 @@
+886
+name=item886
+сategory=cat8

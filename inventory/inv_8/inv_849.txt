@@ -1,0 +1,3 @@
+849
+name=item849
+сategory=cat8

@@ -1,0 +1,3 @@
+696
+name=item696
+сategory=cat6

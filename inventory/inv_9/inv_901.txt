@@ -1,0 +1,3 @@
+901
+name=item901
+сategory=cat9

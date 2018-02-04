@@ -1,0 +1,3 @@
+887
+name=item887
+сategory=cat8

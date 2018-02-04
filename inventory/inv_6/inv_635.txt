@@ -1,0 +1,3 @@
+635
+name=item635
+сategory=cat6

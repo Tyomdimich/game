@@ -1,0 +1,3 @@
+203
+name=item203
+сategory=cat2

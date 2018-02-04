@@ -1,0 +1,3 @@
+506
+name=item506
+сategory=cat5

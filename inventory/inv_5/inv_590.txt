@@ -1,0 +1,3 @@
+590
+name=item590
+сategory=cat5

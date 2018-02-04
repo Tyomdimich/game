@@ -1,0 +1,3 @@
+348
+name=item348
+сategory=cat3

@@ -1,0 +1,3 @@
+653
+name=item653
+сategory=cat6

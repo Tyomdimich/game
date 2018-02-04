@@ -1,0 +1,3 @@
+256
+name=item256
+сategory=cat2

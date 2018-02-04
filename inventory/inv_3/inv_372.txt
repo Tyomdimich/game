@@ -1,0 +1,3 @@
+372
+name=item372
+сategory=cat3

@@ -1,0 +1,3 @@
+607
+name=item607
+сategory=cat6

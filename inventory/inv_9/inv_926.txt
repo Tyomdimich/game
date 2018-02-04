@@ -1,0 +1,3 @@
+926
+name=item926
+сategory=cat9

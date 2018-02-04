@@ -1,0 +1,3 @@
+868
+name=item868
+сategory=cat8

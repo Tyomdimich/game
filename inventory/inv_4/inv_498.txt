@@ -1,0 +1,3 @@
+498
+name=item498
+сategory=cat4

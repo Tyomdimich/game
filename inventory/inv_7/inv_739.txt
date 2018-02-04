@@ -1,0 +1,3 @@
+739
+name=item739
+сategory=cat7

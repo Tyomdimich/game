@@ -1,0 +1,3 @@
+890
+name=item890
+сategory=cat8

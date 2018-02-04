@@ -1,0 +1,3 @@
+240
+name=item240
+сategory=cat2

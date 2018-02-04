@@ -1,0 +1,3 @@
+142
+name=item142
+сategory=cat1

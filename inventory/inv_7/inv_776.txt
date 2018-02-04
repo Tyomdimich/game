@@ -1,0 +1,3 @@
+776
+name=item776
+сategory=cat7

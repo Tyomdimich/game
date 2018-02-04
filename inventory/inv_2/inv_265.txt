@@ -1,0 +1,3 @@
+265
+name=item265
+сategory=cat2

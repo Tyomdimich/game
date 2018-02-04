@@ -1,0 +1,3 @@
+398
+name=item398
+сategory=cat3

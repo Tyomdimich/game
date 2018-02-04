@@ -1,0 +1,3 @@
+553
+name=item553
+сategory=cat5

@@ -1,0 +1,3 @@
+745
+name=item745
+сategory=cat7

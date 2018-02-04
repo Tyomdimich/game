@@ -1,0 +1,3 @@
+944
+name=item944
+сategory=cat9

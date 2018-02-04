@@ -1,0 +1,3 @@
+305
+name=item305
+сategory=cat3

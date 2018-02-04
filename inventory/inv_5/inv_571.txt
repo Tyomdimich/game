@@ -1,0 +1,3 @@
+571
+name=item571
+сategory=cat5

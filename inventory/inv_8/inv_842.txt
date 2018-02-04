@@ -1,0 +1,3 @@
+842
+name=item842
+сategory=cat8

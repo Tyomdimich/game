@@ -1,0 +1,3 @@
+936
+name=item936
+сategory=cat9

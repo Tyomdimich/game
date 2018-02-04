@@ -1,0 +1,3 @@
+582
+name=item582
+сategory=cat5

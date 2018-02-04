@@ -1,0 +1,3 @@
+738
+name=item738
+сategory=cat7

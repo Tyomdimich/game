@@ -1,0 +1,3 @@
+546
+name=item546
+сategory=cat5

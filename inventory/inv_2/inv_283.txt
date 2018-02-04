@@ -1,0 +1,3 @@
+283
+name=item283
+сategory=cat2

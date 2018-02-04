@@ -1,0 +1,3 @@
+834
+name=item834
+сategory=cat8

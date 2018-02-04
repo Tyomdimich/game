@@ -1,0 +1,3 @@
+706
+name=item706
+сategory=cat7

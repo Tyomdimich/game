@@ -1,0 +1,3 @@
+379
+name=item379
+сategory=cat3

@@ -1,0 +1,3 @@
+311
+name=item311
+сategory=cat3

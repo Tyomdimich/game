@@ -1,0 +1,3 @@
+704
+name=item704
+сategory=cat7

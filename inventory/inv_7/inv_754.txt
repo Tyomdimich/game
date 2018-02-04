@@ -1,0 +1,3 @@
+754
+name=item754
+сategory=cat7

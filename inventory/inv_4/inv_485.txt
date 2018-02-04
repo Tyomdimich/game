@@ -1,0 +1,3 @@
+485
+name=item485
+сategory=cat4

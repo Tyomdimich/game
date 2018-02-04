@@ -1,0 +1,3 @@
+433
+name=item433
+сategory=cat4

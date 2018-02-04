@@ -1,0 +1,3 @@
+772
+name=item772
+сategory=cat7

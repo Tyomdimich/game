@@ -1,0 +1,3 @@
+867
+name=item867
+сategory=cat8

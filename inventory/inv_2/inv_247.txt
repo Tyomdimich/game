@@ -1,0 +1,3 @@
+247
+name=item247
+сategory=cat2

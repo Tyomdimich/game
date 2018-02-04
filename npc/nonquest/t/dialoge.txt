@@ -1,0 +1,27 @@
+#Zzzzz...#
+()"Privet"
+{
+	#Privet! Ia testoviy parnishka! Chto ti xochesh?#
+	()"Kak dela?"
+	{
+		#Ogon!#
+		()
+		{B}
+	}
+	()"Cho po kwestam?"
+	{
+		#Ix net!#
+		()"Ny woooot"
+			{B}
+		()"A ti ne prifigel li?"
+			{
+				#Ix pravda net, ia ze testowiy#
+					{B}
+			}
+		()"A esli wseky?"
+			{
+				#Sam wseky!#
+					{B}	
+			}
+	}
+}

@@ -1,0 +1,3 @@
+435
+name=item435
+сategory=cat4

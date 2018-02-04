@@ -1,0 +1,3 @@
+375
+name=item375
+сategory=cat3

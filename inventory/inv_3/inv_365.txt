@@ -1,0 +1,3 @@
+365
+name=item365
+сategory=cat3

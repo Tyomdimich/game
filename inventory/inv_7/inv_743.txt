@@ -1,0 +1,3 @@
+743
+name=item743
+сategory=cat7

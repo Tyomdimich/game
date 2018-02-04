@@ -1,0 +1,3 @@
+594
+name=item594
+сategory=cat5

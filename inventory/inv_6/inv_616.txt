@@ -1,0 +1,3 @@
+616
+name=item616
+сategory=cat6

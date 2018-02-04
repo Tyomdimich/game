@@ -1,0 +1,3 @@
+245
+name=item245
+сategory=cat2

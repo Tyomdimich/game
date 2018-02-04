@@ -1,0 +1,3 @@
+450
+name=item450
+сategory=cat4

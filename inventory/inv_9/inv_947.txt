@@ -1,0 +1,3 @@
+947
+name=item947
+сategory=cat9

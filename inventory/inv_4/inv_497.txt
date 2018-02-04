@@ -1,0 +1,3 @@
+497
+name=item497
+сategory=cat4

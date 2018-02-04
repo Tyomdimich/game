@@ -1,0 +1,3 @@
+163
+name=item163
+сategory=cat1

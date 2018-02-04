@@ -1,0 +1,3 @@
+133
+name=item133
+сategory=cat1

@@ -1,0 +1,3 @@
+961
+name=item961
+сategory=cat9

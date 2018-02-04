@@ -1,0 +1,3 @@
+216
+name=item216
+сategory=cat2

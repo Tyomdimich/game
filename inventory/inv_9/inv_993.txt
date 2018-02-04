@@ -1,0 +1,3 @@
+993
+name=item993
+сategory=cat9

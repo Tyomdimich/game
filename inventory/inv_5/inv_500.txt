@@ -1,0 +1,3 @@
+500
+name=item500
+сategory=cat5

@@ -1,0 +1,3 @@
+737
+name=item737
+сategory=cat7

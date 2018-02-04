@@ -1,0 +1,3 @@
+700
+name=item700
+сategory=cat7

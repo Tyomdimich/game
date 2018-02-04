@@ -1,0 +1,3 @@
+267
+name=item267
+сategory=cat2

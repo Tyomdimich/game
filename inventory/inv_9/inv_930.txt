@@ -1,0 +1,3 @@
+930
+name=item930
+сategory=cat9

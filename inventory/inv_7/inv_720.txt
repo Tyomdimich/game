@@ -1,0 +1,3 @@
+720
+name=item720
+сategory=cat7

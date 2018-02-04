@@ -1,0 +1,3 @@
+785
+name=item785
+сategory=cat7

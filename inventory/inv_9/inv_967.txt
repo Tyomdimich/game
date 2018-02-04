@@ -1,0 +1,3 @@
+967
+name=item967
+сategory=cat9

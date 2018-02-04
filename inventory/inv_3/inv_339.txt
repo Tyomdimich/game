@@ -1,0 +1,3 @@
+339
+name=item339
+сategory=cat3

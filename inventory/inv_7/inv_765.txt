@@ -1,0 +1,3 @@
+765
+name=item765
+сategory=cat7

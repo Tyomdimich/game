@@ -1,0 +1,3 @@
+633
+name=item633
+сategory=cat6

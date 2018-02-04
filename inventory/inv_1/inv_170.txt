@@ -1,0 +1,3 @@
+170
+name=item170
+сategory=cat1

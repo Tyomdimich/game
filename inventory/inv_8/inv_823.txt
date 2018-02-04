@@ -1,0 +1,3 @@
+823
+name=item823
+сategory=cat8

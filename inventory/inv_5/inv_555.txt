@@ -1,0 +1,3 @@
+555
+name=item555
+сategory=cat5

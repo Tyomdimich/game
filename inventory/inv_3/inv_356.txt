@@ -1,0 +1,3 @@
+356
+name=item356
+сategory=cat3

@@ -1,0 +1,3 @@
+938
+name=item938
+сategory=cat9

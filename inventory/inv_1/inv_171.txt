@@ -1,0 +1,3 @@
+171
+name=item171
+сategory=cat1

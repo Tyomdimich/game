@@ -1,0 +1,3 @@
+750
+name=item750
+сategory=cat7

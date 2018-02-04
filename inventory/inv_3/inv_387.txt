@@ -1,0 +1,3 @@
+387
+name=item387
+сategory=cat3

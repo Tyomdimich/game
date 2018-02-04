@@ -1,0 +1,3 @@
+784
+name=item784
+сategory=cat7

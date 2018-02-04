@@ -1,0 +1,3 @@
+658
+name=item658
+сategory=cat6

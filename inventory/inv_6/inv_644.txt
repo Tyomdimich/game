@@ -1,0 +1,3 @@
+644
+name=item644
+сategory=cat6

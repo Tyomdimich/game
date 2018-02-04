@@ -1,0 +1,3 @@
+736
+name=item736
+сategory=cat7

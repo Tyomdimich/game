@@ -1,0 +1,3 @@
+193
+name=item193
+сategory=cat1

@@ -1,0 +1,3 @@
+711
+name=item711
+сategory=cat7

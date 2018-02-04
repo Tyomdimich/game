@@ -1,0 +1,3 @@
+724
+name=item724
+сategory=cat7

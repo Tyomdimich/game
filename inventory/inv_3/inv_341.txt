@@ -1,0 +1,3 @@
+341
+name=item341
+сategory=cat3

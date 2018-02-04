@@ -1,0 +1,3 @@
+650
+name=item650
+сategory=cat6

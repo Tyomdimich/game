@@ -1,0 +1,3 @@
+668
+name=item668
+сategory=cat6

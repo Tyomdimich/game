@@ -1,0 +1,3 @@
+661
+name=item661
+сategory=cat6

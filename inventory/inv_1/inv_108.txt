@@ -1,0 +1,3 @@
+108
+name=item108
+сategory=cat1

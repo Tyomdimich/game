@@ -1,0 +1,3 @@
+680
+name=item680
+сategory=cat6

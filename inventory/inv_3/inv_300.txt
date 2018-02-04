@@ -1,0 +1,3 @@
+300
+name=item300
+сategory=cat3

@@ -1,0 +1,3 @@
+906
+name=item906
+сategory=cat9

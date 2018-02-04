@@ -1,0 +1,3 @@
+310
+name=item310
+сategory=cat3

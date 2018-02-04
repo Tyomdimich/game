@@ -1,0 +1,3 @@
+676
+name=item676
+сategory=cat6

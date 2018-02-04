@@ -1,0 +1,3 @@
+646
+name=item646
+сategory=cat6

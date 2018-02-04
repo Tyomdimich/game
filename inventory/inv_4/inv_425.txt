@@ -1,0 +1,3 @@
+425
+name=item425
+сategory=cat4

@@ -1,0 +1,3 @@
+627
+name=item627
+сategory=cat6

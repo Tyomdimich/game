@@ -1,0 +1,3 @@
+342
+name=item342
+сategory=cat3

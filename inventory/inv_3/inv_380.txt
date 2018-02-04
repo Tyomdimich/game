@@ -1,0 +1,3 @@
+380
+name=item380
+сategory=cat3

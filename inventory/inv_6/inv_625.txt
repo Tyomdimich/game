@@ -1,0 +1,3 @@
+625
+name=item625
+сategory=cat6

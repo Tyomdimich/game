@@ -1,0 +1,3 @@
+362
+name=item362
+сategory=cat3

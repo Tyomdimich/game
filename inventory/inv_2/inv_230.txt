@@ -1,0 +1,3 @@
+230
+name=item230
+сategory=cat2

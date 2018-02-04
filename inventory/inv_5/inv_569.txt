@@ -1,0 +1,3 @@
+569
+name=item569
+сategory=cat5

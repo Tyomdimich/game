@@ -1,0 +1,3 @@
+523
+name=item523
+сategory=cat5

@@ -1,0 +1,3 @@
+395
+name=item395
+сategory=cat3

@@ -1,0 +1,3 @@
+729
+name=item729
+сategory=cat7

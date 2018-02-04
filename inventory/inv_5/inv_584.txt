@@ -1,0 +1,3 @@
+584
+name=item584
+сategory=cat5

@@ -1,0 +1,3 @@
+608
+name=item608
+сategory=cat6

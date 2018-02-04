@@ -1,0 +1,3 @@
+721
+name=item721
+сategory=cat7

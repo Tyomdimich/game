@@ -1,0 +1,3 @@
+313
+name=item313
+сategory=cat3

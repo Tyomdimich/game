@@ -1,0 +1,3 @@
+640
+name=item640
+сategory=cat6

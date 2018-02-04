@@ -1,0 +1,3 @@
+888
+name=item888
+сategory=cat8

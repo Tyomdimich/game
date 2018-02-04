@@ -1,0 +1,3 @@
+916
+name=item916
+сategory=cat9

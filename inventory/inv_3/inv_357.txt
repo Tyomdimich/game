@@ -1,0 +1,3 @@
+357
+name=item357
+сategory=cat3

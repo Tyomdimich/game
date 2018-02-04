@@ -1,0 +1,3 @@
+200
+name=item200
+сategory=cat2

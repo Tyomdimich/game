@@ -1,0 +1,3 @@
+383
+name=item383
+сategory=cat3

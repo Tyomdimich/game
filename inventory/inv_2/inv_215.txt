@@ -1,0 +1,3 @@
+215
+name=item215
+сategory=cat2

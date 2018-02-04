@@ -1,0 +1,3 @@
+783
+name=item783
+сategory=cat7

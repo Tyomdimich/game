@@ -1,0 +1,3 @@
+554
+name=item554
+сategory=cat5

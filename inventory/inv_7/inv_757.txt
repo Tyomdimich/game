@@ -1,0 +1,3 @@
+757
+name=item757
+сategory=cat7

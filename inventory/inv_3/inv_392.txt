@@ -1,0 +1,3 @@
+392
+name=item392
+сategory=cat3

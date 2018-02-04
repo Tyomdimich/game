@@ -1,0 +1,3 @@
+852
+name=item852
+сategory=cat8
