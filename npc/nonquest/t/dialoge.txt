@@ -1,29 +1,37 @@
-#Zzzzz...#
-()"Privet"
-{
-	#Privet! Ia testoviy parnishka! Chto ti xochesh?#
-	()"Kak dela?"
+#npc0#
+()"c0"
 	{
-		#Ogon!#
-		()""
-		{B}
-	}
-	()"Cho po kwestam?"
-	{
-		#Ix net!#
-		()"Ny woooot"
-			{B}
-		()"A ti ne prifigel li?"
+		#npc1.1#
+		()"c1.1?"
 			{
-				#Ix pravda net, ia ze testowiy#
-				()""
-					{B}
+				#npc2#
+				()"c2.1"{B}
+				()"c2.2"{B}
+				()"c2.3"{B}
+				()"c2.4"{B}
 			}
-		()"A esli wseky?"
+		()"c1.2"
 			{
-				#Sam wseky!#
-				()""
-					{B}E
-			}E
-	}E
-}E
+				#npc2#
+				()"c2.1"{B}
+				()"c2.2"
+				{
+					#npc3#
+					()"c3.1"{B}
+					()"c3.2"{B}
+					()"c3.3"{B}
+					()"c3.4"{B}
+				}
+				()"c2.3"
+				{
+					#npc3#
+					()"c3.1"{B}
+					()"c3.2"{B}
+					()"c3.3"{B}
+					()"c3.4"{B}
+				}
+				()"c2.4"{B}
+			}
+		()"c1.3"{B}
+		()"c1.4"{B}
+	}
