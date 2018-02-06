@@ -541,15 +541,15 @@ struct dial_tree_br
 	struct dial_tree_br *br;
 	char **phrase;
 };
-
 */
-//! 			T
-//! БАГУЛЯ ХДЕ-ТО ТУТ
+
 
 struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, long int cur_pos)
 {
 	log = "\n	DIAL UPLOAD\n";		PRINT_LOG
 	
+	
+	//инициализироуем константы, переменные и пр.
 	const int dial_max = 4;
 	const int phrase_max = 200;
 
@@ -565,13 +565,15 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, lo
 	
 	
 	log = "start of while 1 \n";		PRINT_LOG
-
+	
+	//выделяем память под фразы по числу dial_max
 	while(cur_dial_num != dial_max)
 	{
 		cur_br->phrase[cur_dial_num] = (char *)calloc(phrase_max, sizeof(char));
 		cur_dial_num++;
 	}
 
+	//даем парент ветку, инициализируем is_end
 	cur_br->parent = par_br;
 	cur_br->is_end = 0;
 
@@ -579,13 +581,15 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, lo
 	
 	log = "start of while 2 \n";		PRINT_LOG
 	
+	//ищем '#' или 'B' в cur_dial
 	while( (cur_dial[cur_pos] != '#') && (cur_dial[cur_pos] != 'B') )
 		cur_pos++;
 
 	log_fp = fopen("log.txt", "a");
-	fprintf(log_fp, "%d\n", cur_pos);
+	fprintf(log_fp, "%d\n", cur_pos); //вывод cur_pos в лог
 	fclose(log_fp);	
 	
+	//если остановка из-за 'В', то конец ветки
 	if(cur_dial[cur_pos] == 'B')
 	{
 		log = "	END nashel B !!\n";		PRINT_LOG
@@ -600,20 +604,21 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, lo
 		return cur_br;
 	}
 
-	cur_pos++;
+	cur_pos++; //продолжаем движение по файлу
 	
 	log = "start of while 3 \n"; 		PRINT_LOG
 	
-	//!!BUG!!!
+	//заполняем фразу содержимым между двумя # #
 	while(cur_dial[cur_pos] != '#')
 	{
-		//log = "processing of while 3 .\n"; 		PRINT_LOG	
 		cur_br->npc_phrase[i++] = cur_dial[cur_pos++];
 	}
 		
-	log = cur_br->npc_phrase; 		PRINT_LOG	
-	log = "\nstart of while  4 \n"; 		PRINT_LOG
+	log = cur_br->npc_phrase; 		PRINT_LOG	//принт фразы в лог
+	log = "\nstart of while  4 \n"; 		PRINT_LOG 
 
+	//надо дописать условие и вообще этот цикл сырой :(
+	//а вообще, просто проходим по тексту , циклично разделенному данными знаками
 	while( (cur_dial_num < dial_max) && (cur_dial[cur_pos] != 'E') )
 	{
 		i = 0;
@@ -634,25 +639,19 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, lo
 
 		log = "start of while 4.1 \n"; 		PRINT_LOG
 		
+		while(cur_dial[cur_pos] != '"') //записываем текст между двумя " " в фразу (которую может произнести игрок)
+			cur_br->phrase[cur_dial_num][i++] = cur_dial[cur_pos++];	
 		
-		while(cur_dial[cur_pos] != '"')
-		{
-			//log = "processing while 4.1 .\n "; 		PRINT_LOG
-		
-			cur_br->phrase[cur_dial_num][i++] = cur_dial[cur_pos++];
-			
-			//log = "processing while 4.1 ..\n"; 		PRINT_LOG		
-		}
 		log = "end of while 4.1 \n"; 		PRINT_LOG
 		cur_pos++;
 
-		V_SKIP('{')
+		V_SKIP('{') // { - символ новой ветки, рекурсивно ее вызываем
 		log = "V_SKIP ' { '\n"; 		PRINT_LOG
 		
 		log = "\n DIAL UPLOAD AGAIN\n"; 		PRINT_LOG
 		cur_br->br = dial_upload(cur_dial, cur_br, cur_pos);
 
-		V_SKIP('}')
+		V_SKIP('}')  // когда ветка со всеми ее последующими вызовами кончается, ищем } - конец ветки
 		log = "V_SKIP ' } '\n"; 		PRINT_LOG
 	
 		cur_dial_num++;
@@ -660,6 +659,7 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, lo
 		log_fp = fopen("log.txt", "a");
 		fprintf(log_fp, "	CUR_dial_num = %d\n", cur_dial_num);
 		fclose(log_fp);	
+		//и всем этим делом мы заимаемся, пока выполняется условие, которое надо доработать 
 	}
 	
 	log = "	END of dial_upload\n"; 		PRINT_LOG
