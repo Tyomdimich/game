@@ -66,11 +66,17 @@
 				freopen(item_adres, "r", inv_fp); 									\
 
 				
-#define V_SKIP( what )																\
-			while(cur_dial[cur_pos] != what)										\
+#define V_SKIP( sym )																\
+			while(cur_dial[cur_pos] != sym)										\
 				cur_pos++;															\
 			cur_pos++;																\
-
+			
+			
+#define PRINT_LOG															\
+			log_fp = fopen("log.txt", "a");											\
+			fprintf(log_fp, "%s", log);											\
+			fclose(log_fp);															\
+			
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -170,6 +176,12 @@ struct npc
 
 struct entity Hero;
 
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ПЕРЕМЕННАЯ ДЛЯ ПЕЧАТИ ЛОГОВ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+char* log = (char*)calloc(192, sizeof(char));
+FILE* log_fp;
+
 //!----------------------------------------------------------------------
 //!
 //! Игора
@@ -192,7 +204,7 @@ int main()
 	curs_set(0);
 	noecho();
 	
-	FILE* log_fp = fopen("log.txt", "w"); //создание/зануление файлов логов
+	log_fp = fopen("log.txt", "w"); //создание/зануление файлов логов
 	fclose(log_fp);
 	
 	hero_create();
@@ -218,7 +230,7 @@ int main()
 
 //!-----------------------------------------------------------------------
 //!
-//!  Данная функция вызывается единожды и отвечает за создание персонажа
+//! 					 Данная функция вызывается единожды и отвечает за создание персонажа
 //!
 //!-----------------------------------------------------------------------
 void hero_create(void)
@@ -352,38 +364,31 @@ void hero_create(void)
 //!			NT
 //!-----------------------------------------------------------------------------------------
 //!
-//! Данная функция инициализирует нпс (если такой существует)
+//!							Данная функция инициализирует нпс (если такой существует)
 //!
 //!-----------------------------------------------------------------------------------------
 struct npc* npc_upload(char name)
 {
-	FILE* log_fp = fopen("log.txt", "a");
-	fputs("\nstart of npc_upload\n", log_fp);
-	fclose(log_fp);
-		
+	log = "\nstart of npc_upload\n";	PRINT_LOG
+	
 	char is_friendly = 0;
 
 	char* main_adr = (char*) calloc(100, sizeof(char));
 	char* dial_adr = (char*) calloc(100, sizeof(char));
 	char* face_adr = (char*) calloc(100, sizeof(char));
 	
-	log_fp = fopen("log.txt", "a");
-	fputs("get adreses\n", log_fp);
-	fclose(log_fp);
+	log = "ger adreses\n";		PRINT_LOG
+
 	
 	sprintf(main_adr, "npc/nonquest/%c/main.txt", name);
 	sprintf(dial_adr, "npc/nonquest/%c/dialoge.txt", name);
 	sprintf(face_adr, "npc/nonquest/%c/face.txt", name);
 	
-	log_fp = fopen("log.txt", "a");
-	fputs("got adreses\n", log_fp);
-	fclose(log_fp);
+	log = "got adreses\n";		PRINT_LOG
 	
 	FILE *main_adr_fp = fopen(main_adr, "r");
 	
-	log_fp = fopen("log.txt", "a");
-	fputs("open main_adr_fp\n", log_fp);
-	fclose(log_fp);
+	log = "open main_adr_fp\n";		PRINT_LOG
 	
 	if(main_adr_fp == NULL)
 	{
@@ -420,36 +425,44 @@ struct npc* npc_upload(char name)
 	fclose(main_adr_fp);
 	
 	
-	log_fp = fopen("log.txt", "a");
-	fputs("fclose main_adr_fp\n", log_fp);
-	fclose(log_fp);
+	log = "fclose main_adr_fp\n";
+	PRINT_LOG
 
 	FILE *dial_adr_fp = fopen(dial_adr, "r");
 
-	log_fp = fopen("log.txt", "a");
-	fputs("fopen dial_adres_fp\n", log_fp);
-	fclose(log_fp);	
+	log = "fopen dial_adres_fp\n";
+	PRINT_LOG	
 	
 	
 	fseek(dial_adr_fp, 0, SEEK_END);
 	long int size = ftell(dial_adr_fp);
 
 	char* file_info = (char *) calloc(size, sizeof(char));
+	
+	
+	char dial_sym = 0;
+	int i = 0;
+	fseek(dial_adr_fp, 0, SEEK_SET);
+	while (dial_sym != EOF)
+	{
+		dial_sym = getc(dial_adr_fp);
+		file_info[i++] = dial_sym;
+	}
+	i = 0;	
+		
 
 	cur_npc->dial_start = dial_upload(file_info, NULL, 0);
 
 	fclose(dial_adr_fp);
 	
-	log_fp = fopen("log.txt", "a");
-	fputs("fclose dial_adres_fp\n", log_fp);
-	fclose(log_fp); 
+	log = "fclose dial_adres_fp\n";
+	PRINT_LOG
 
 	//далее подгрузка лица персонажа в окне диалога
 	//mvprintw(30,31,"$$");///// TEST
 
-	log_fp = fopen("log.txt", "a");
-	fputs("end of npc_upload\n", log_fp);
-	fclose(log_fp);
+	log = "end of npc_upload\n";
+	PRINT_LOG
 
 	return cur_npc;
 }
@@ -469,14 +482,14 @@ void dialog_menu_start(struct npc *cur_npc)
 
 //!------------------------------------------------------------------------
 //!
-//! Данная функция провнряет был ли инициализирован данный нпс, если был то задаёт его координаты
+//!						 Данная функция провeряет был ли инициализирован данный 
+//!							нпс, если был то задаёт его координаты
 //!
 //!------------------------------------------------------------------------
 struct npc* npc_finder(char cur_sym, int find_x, int find_y)
 {
-	FILE* log_fp = fopen("log.txt", "a");	
-	fputs("\nstart of npc_finder\n", log_fp);
-	fclose(log_fp);
+	log = "\nstart of npc_finder\n";		PRINT_LOG
+
 	
 	struct npc* cur_npc = npc_upload(cur_sym);
 
@@ -486,10 +499,8 @@ struct npc* npc_finder(char cur_sym, int find_x, int find_y)
 	cur_npc->stats.cur_x = find_x;
 	cur_npc->stats.cur_y = find_y;
 	
-	log_fp = fopen("log.txt", "a");
-	fputs("found cur_npc x, y\n", log_fp);
-	fputs("end of npc_finder\n", log_fp);
-	fclose(log_fp);
+	log = "end of npc_finder\n";		PRINT_LOG
+
 	
 	return cur_npc;
 }
@@ -497,15 +508,13 @@ struct npc* npc_finder(char cur_sym, int find_x, int find_y)
 
 //!-------------------------------------------------------------------------------------------
 //!
-//! Данная функция печатает нпс
+//!									 Данная функция печатает нпс
 //!
 //!-------------------------------------------------------------------------------------------
 void print_npc(struct npc** cur_npc)  //void print_npc(struct npc* cur_npc)  ???
 {
-	FILE* log_fp = fopen("log.txt", "a");
-	fputs("\nstart of print_npc\n", log_fp);
-	fclose(log_fp);
-	
+	log = "\nstart of print_npc\n";		PRINT_LOG
+
 	int cur_num = 0;
 	//mvprintw(30,30,"!"); //////// TEST
 
@@ -515,14 +524,12 @@ void print_npc(struct npc** cur_npc)  //void print_npc(struct npc* cur_npc)  ???
 		cur_num++;
 	}
 	
-	log_fp = fopen("log.txt", "a");
-	fputs("end of print_npc\n", log_fp);
-	fclose(log_fp);
+	log = "end of print_npc\n";		PRINT_LOG
 }
 
 //!-------------------------------------------------------------------------------------------
 //!
-//! Данная функция инициализирует диалоги
+//!								 Данная функция инициализирует диалоги
 //!
 //!-------------------------------------------------------------------------------------------
 /*
@@ -539,11 +546,9 @@ struct dial_tree_br
 //! 			T
 //! БАГУЛЯ ХДЕ-ТО ТУТ
 
-struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par, long int cur_pos)
+struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, long int cur_pos)
 {
-	FILE* log_fp = fopen("log.txt", "a");	
-	fputs("\nstart  of dial_upload\n", log_fp);
-	fclose(log_fp);
+	log = "\n	DIAL UPLOAD\n";		PRINT_LOG
 	
 	const int dial_max = 4;
 	const int phrase_max = 200;
@@ -556,47 +561,34 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par, long 
 
 	cur_br->br = (struct dial_tree_br *)calloc(dial_max, sizeof(struct dial_tree_br));
 	cur_br->npc_phrase = (char *)calloc(phrase_max, sizeof(char));
+	cur_br->phrase = (char **)calloc(dial_max, sizeof(char*));
 	
 	
-	log_fp = fopen("log.txt", "a");	
-	fputs("\nstart of while1 \n", log_fp);
-	fclose(log_fp);
-	
+	log = "start of while 1 \n";		PRINT_LOG
+
 	while(cur_dial_num != dial_max)
-	{	
-		log_fp = fopen("log.txt", "a");	
-		fputs("\nwhile1 processing.\n", log_fp);
-		fclose(log_fp);
-		
-		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	{
 		cur_br->phrase[cur_dial_num] = (char *)calloc(phrase_max, sizeof(char));
-		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		
-		log_fp = fopen("log.txt", "a");	
-		fputs("\nwhile1 processing..\n", log_fp);
-		fclose(log_fp);
-		
-		cur_dial++;
-		
-		log_fp = fopen("log.txt", "a");	
-		fputs("\nwhile1 processing...\n", log_fp);
-		fclose(log_fp);
+		cur_dial_num++;
 	}
 
-	cur_br->parent = par;
+	cur_br->parent = par_br;
 	cur_br->is_end = 0;
 
-	cur_dial = 0;
+	cur_dial_num = 0;
 	
-	log_fp = fopen("log.txt", "a");	
-	fputs("\nstart of while2 \n", log_fp);
-	fclose(log_fp);
+	log = "start of while 2 \n";		PRINT_LOG
 	
-	while(cur_dial[cur_pos] != '#' && cur_dial[cur_pos] != 'B')									
-		cur_pos++;												
+	while( (cur_dial[cur_pos] != '#') && (cur_dial[cur_pos] != 'B') )
+		cur_pos++;
 
+	log_fp = fopen("log.txt", "a");
+	fprintf(log_fp, "%d\n", cur_pos);
+	fclose(log_fp);	
+	
 	if(cur_dial[cur_pos] == 'B')
 	{
+		log = "	END nashel B !!\n";		PRINT_LOG
 		while(cur_dial_num != dial_max)
 		{
 			free(cur_br->phrase[cur_dial_num]);			
@@ -610,44 +602,68 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par, long 
 
 	cur_pos++;
 	
-	log_fp = fopen("log.txt", "a");	
-	fputs("\nstart of while3 \n", log_fp);
-	fclose(log_fp);
-
+	log = "start of while 3 \n"; 		PRINT_LOG
+	
+	//!!BUG!!!
 	while(cur_dial[cur_pos] != '#')
+	{
+		//log = "processing of while 3 .\n"; 		PRINT_LOG	
 		cur_br->npc_phrase[i++] = cur_dial[cur_pos++];
+	}
 		
-	log_fp = fopen("log.txt", "a");	
-	fputs("\nstart of while3 \n", log_fp);
-	fclose(log_fp);
+	log = cur_br->npc_phrase; 		PRINT_LOG	
+	log = "\nstart of while  4 \n"; 		PRINT_LOG
 
-	while(cur_dial_num != dial_max && cur_dial[cur_pos] != EOF)
+	while( (cur_dial_num < dial_max) && (cur_dial[cur_pos] != 'E') )
 	{
 		i = 0;
-
+		
+		log = "processing V_SKIP \n"; 		PRINT_LOG
+		
 		V_SKIP('(')
+		
+		log = "V_SKIP '('\n"; 		PRINT_LOG
 				/// тут будут условия появления фразы
 		V_SKIP(')')
  		
+ 		log = "V_SKIP ')'\n"; 		PRINT_LOG
+ 		
 		V_SKIP('"')
 
+		log = "V_SKIP ' '' '\n"; 		PRINT_LOG
+
+		log = "start of while 4.1 \n"; 		PRINT_LOG
+		
+		
 		while(cur_dial[cur_pos] != '"')
+		{
+			//log = "processing while 4.1 .\n "; 		PRINT_LOG
+		
 			cur_br->phrase[cur_dial_num][i++] = cur_dial[cur_pos++];
+			
+			//log = "processing while 4.1 ..\n"; 		PRINT_LOG		
+		}
+		log = "end of while 4.1 \n"; 		PRINT_LOG
 		cur_pos++;
 
 		V_SKIP('{')
-
+		log = "V_SKIP ' { '\n"; 		PRINT_LOG
+		
+		log = "\n DIAL UPLOAD AGAIN\n"; 		PRINT_LOG
 		cur_br->br = dial_upload(cur_dial, cur_br, cur_pos);
 
 		V_SKIP('}')
-
+		log = "V_SKIP ' } '\n"; 		PRINT_LOG
+	
 		cur_dial_num++;
+		
+		log_fp = fopen("log.txt", "a");
+		fprintf(log_fp, "	CUR_dial_num = %d\n", cur_dial_num);
+		fclose(log_fp);	
 	}
 	
-	log_fp = fopen("log.txt", "a");
-	fputs("end of dial_upload\n", log_fp);
-	fclose(log_fp);
-
+	log = "	END of dial_upload\n"; 		PRINT_LOG
+	
 	return cur_br;
 }
 
@@ -655,7 +671,7 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par, long 
 
 //!-----------------------------------------------------------------------
 //!
-//!  Данная функция открывает инвентарь и позволяет там че-т делать :I
+//!					  Данная функция открывает инвентарь и позволяет там че-т делать :I
 //!
 //!-----------------------------------------------------------------------
 void open_inventory (void) 
@@ -929,7 +945,7 @@ void open_inventory (void)
 
 //!--------------------------------------------------------------------------
 //!
-//! Отвечает за перемещение (и не только) персонажа
+//! 							Отвечает за перемещение (и не только) персонажа
 //!
 //!--------------------------------------------------------------------------
 int player_command(int command, struct map_title *cur_map)
@@ -966,7 +982,7 @@ int player_command(int command, struct map_title *cur_map)
 
 //!-----------------------------------------------------------------------------------------
 //!
-//! Данная функция отвечает за проверку на наличие стен на пути персонажа
+//! 				Данная функция отвечает за проверку на наличие стен на пути персонажа
 //!
 //!-----------------------------------------------------------------------------------------
 int is_wall(int direction, struct map_title *cur_map)
@@ -982,7 +998,7 @@ int is_wall(int direction, struct map_title *cur_map)
 
 //!------------------------------------------------------------------------------------------
 //!
-//! Данная функция за обновление карты
+//!							 Данная функция за обновление карты
 //!
 //!------------------------------------------------------------------------------------------
 void print_map(struct map_title *cur_map, WINDOW *stats_bar)
@@ -1016,7 +1032,7 @@ void print_map(struct map_title *cur_map, WINDOW *stats_bar)
 
 //!----------------------------------------------------------------------------------------
 //!
-//! Данная функция отвечает за печать бара со статами
+//!						 Данная функция отвечает за печать бара со статами
 //!
 //!----------------------------------------------------------------------------------------
 void print_stats(WINDOW *stats_bar)
@@ -1036,7 +1052,7 @@ void print_stats(WINDOW *stats_bar)
 
 //!----------------------------------------------------------------------------------------
 //! 
-//! Данная кманда отвечает за погрузку первого тайла карты, а так же за движение персонажа
+//!			 Данная кманда отвечает за погрузку первого тайла карты, а так же за движение персонажа
 //!
 //! Порядок описания ссылок
 //! вверх - вправо - вниз - влево
@@ -1123,7 +1139,7 @@ void map_upload(FILE *cur_map_f)
 
 //!---------------------------------------------------------------------
 //!
-//! Данная функция инициализирует текущую локацию
+//! 						Данная функция инициализирует текущую локацию
 //!
 //! side - сторона, в которую игрок вышел с предыдущей карты
 //!
@@ -1212,7 +1228,7 @@ struct map_title *loc_init(FILE *cur_map_f, int side, struct npc** cur_npc)
 
 //!------------------------------------------------------------------------------
 //!
-//! Данная команда отвечает за перемещение персонажа между локациями
+//!					 Данная команда отвечает за перемещение персонажа между локациями
 //!
 //!------------------------------------------------------------------------------
 struct map_title *location_changer(int border_trigger, struct map_title *cur_map, struct npc** cur_npc)

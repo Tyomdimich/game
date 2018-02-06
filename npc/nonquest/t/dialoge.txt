@@ -5,7 +5,7 @@
 	()"Kak dela?"
 	{
 		#Ogon!#
-		()
+		()""
 		{B}
 	}
 	()"Cho po kwestam?"
@@ -16,12 +16,14 @@
 		()"A ti ne prifigel li?"
 			{
 				#Ix pravda net, ia ze testowiy#
+				()""
 					{B}
 			}
 		()"A esli wseky?"
 			{
 				#Sam wseky!#
-					{B}	
-			}
-	}
-}
+				()""
+					{B}E
+			}E
+	}E
+}E
