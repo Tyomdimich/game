@@ -43,6 +43,37 @@
 				)																	\
 			  )																		\
 			return 1;
+
+#define REOPEN_CUR_ITEM_1														\
+			sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[cur_pos].cat, "/inv_", Hero.inventory[cur_pos].id, ".txt");	\
+			freopen(item_adres, "r", inv_fp); 			
+			
+#define REOPEN_CUR_ITEM_2													\
+			sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[cur_pos + list_size].cat, "/inv_", Hero.inventory[cur_pos + list_size].id, ".txt");\
+			freopen(item_adres, "r", inv_fp); 									\
+
+				
+#define V_SKIP( sym )																\
+			while(cur_dial[cur_pos] != sym)										\
+				cur_pos++;															\
+			cur_pos++;																\
+			
+			
+#define PRINT_LOG															\
+			log_fp = fopen("log.txt", "a");											\
+			fprintf(log_fp, "%s", log);											\
+			fclose(log_fp);															\
+
+
+
+
+#define REOPEN_CUR_ITEM_1														\
+			sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[cur_pos].cat, "/inv_", Hero.inventory[cur_pos].id, ".txt");	\
+			freopen(item_adres, "r", inv_fp); 			
+			
+#define REOPEN_CUR_ITEM_2													\
+			sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[cur_pos + list_size].cat, "/inv_", Hero.inventory[cur_pos + list_size].id, ".txt");\
+			freopen(item_adres, "r", inv_fp); 									\
 			
 #define PRINT_INV_DESCR_NAME 														\
 			fscanf(inv_fp, "%[^\n]", item_data);		fgetc(inv_fp);				\
@@ -57,26 +88,58 @@
 			mvwprintw(win_descr, cat_y, cat_x, "category: ");						\
 			wprintw(win_descr, item_data);											\
 			
-#define REOPEN_CUR_ITEM_1														\
-				sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[cur_pos].cat, "/inv_", Hero.inventory[cur_pos].id, ".txt");	\
-				freopen(item_adres, "r", inv_fp); 			
-			
-#define REOPEN_CUR_ITEM_2													\
-				sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[cur_pos+30].cat, "/inv_", Hero.inventory[cur_pos+30].id, ".txt");	\
-				freopen(item_adres, "r", inv_fp); 									\
-
-				
-#define V_SKIP( sym )																\
-			while(cur_dial[cur_pos] != sym)										\
-				cur_pos++;															\
-			cur_pos++;																\
-			
-			
-#define PRINT_LOG															\
-			log_fp = fopen("log.txt", "a");											\
-			fprintf(log_fp, "%s", log);											\
-			fclose(log_fp);															\
-			
+#define DRAW_INV	\
+			for (i = 0; Hero.inventory[i].id != 0; i++)	\
+			{	\
+				/*обработка даных из файлов с предметами*/ \
+				sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[i].cat, "/inv_", Hero.inventory[i].id, ".txt");	\
+				freopen(item_adres, "r", inv_fp); 	\
+				fscanf(inv_fp, "%[^\n]", item_data);		fgetc(inv_fp);	\
+				fscanf(inv_fp, "%[^=]", item_data);		fgetc(inv_fp);	\
+				fscanf(inv_fp, "%[^\n]", item_data);		fgetc(inv_fp);	\
+				\
+				if (i < list_size)	\
+				{	\
+					mvwprintw(win_list, 1 + i, 5, "%s", item_data); 	\
+					wrefresh(win_list);	\
+				}	\
+					else	\
+				{	\
+					mvwprintw(win_list2, 1 + i%30, 5, "%s", item_data); 	\
+					wrefresh(win_list2);	\
+				}	\
+			}	\
+				\
+			i--; /*это нужно т.к. i в конце уходит на зануленную ячейку*/	\
+				\
+			if (i < list_size)		/*обозначаем максимальные позиции для обоих листов*/ \
+			{	\
+				max_pos1 = i;	\
+				max_pos2 = 0;	\
+			}	\
+			else	\
+			{	\
+				max_pos1 = list_size - 1;	\
+				max_pos2 = i - list_size;	\
+			}	\
+				\
+			/*вывод начального содержания на экран, если инвентарь не пустой*/ \
+			if (Hero.inventory[0].id != 0)	\
+			{	\
+				mvwprintw(win_list, cur_pos_y, cur_pos_x, "-->");	\
+				/*вывод инфы на win_descr*/	\
+				sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[0].cat, "/inv_", Hero.inventory[0].id, ".txt");	\
+				freopen(item_adres, "r", inv_fp);	\
+				/*название*/ \
+				PRINT_INV_DESCR_NAME	\
+				/*категория*/ \
+				PRINT_INV_DESCR_CAT	\
+				\
+			}	\
+				\
+			top_panel(pan_list);	\
+			update_panels();	\
+			doupdate();	\
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END OF DEFINES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -209,12 +272,12 @@ int main()
 	
 	hero_create();
 
-	Hero.inventory[0].id = 101;
+	Hero.inventory[0].id = 101;  //тестовая инициализация инвентаря
 	Hero.inventory[0].cat = Hero.inventory[0].id/100;
 	Hero.inventory[1].id = 302;
 	Hero.inventory[1].cat = Hero.inventory[1].id/100;
 	Hero.inventory[2].id = 627;
-	Hero.inventory[2].cat = Hero.inventory[2].id/100;
+	Hero.inventory[2].cat = Hero.inventory[2].id/100;  
 
 	
 	
@@ -235,6 +298,8 @@ int main()
 //!-----------------------------------------------------------------------
 void hero_create(void)
 {
+	//описание переменных 	
+	
 	int score_points = 5;
 	int cur_pos = 0;
 	int is_end = 0;
@@ -283,6 +348,7 @@ void hero_create(void)
 	mvwprintw(win, 12, 5, "-->");
 	wrefresh(win);
 
+	//навигация по менюшке распределения очков
 	while(is_end == 0)
 	{
 		sym = wgetch(win);
@@ -371,24 +437,24 @@ struct npc* npc_upload(char name)
 {
 	log = "\nstart of npc_upload\n";	PRINT_LOG
 	
+	//описание переменых и пр.
 	char is_friendly = 0;
-
 	char* main_adr = (char*) calloc(100, sizeof(char));
 	char* dial_adr = (char*) calloc(100, sizeof(char));
 	char* face_adr = (char*) calloc(100, sizeof(char));
 	
-	log = "ger adreses\n";		PRINT_LOG
+	//log = "get adreses\n";		PRINT_LOG
 
-	
+	//запись адресов с информацией о нпс в чаровые массивы
 	sprintf(main_adr, "npc/nonquest/%c/main.txt", name);
 	sprintf(dial_adr, "npc/nonquest/%c/dialoge.txt", name);
 	sprintf(face_adr, "npc/nonquest/%c/face.txt", name);
 	
-	log = "got adreses\n";		PRINT_LOG
+	//log = "got adreses\n";		PRINT_LOG
 	
 	FILE *main_adr_fp = fopen(main_adr, "r");
 	
-	log = "open main_adr_fp\n";		PRINT_LOG
+	//log = "open main_adr_fp\n";		PRINT_LOG
 	
 	if(main_adr_fp == NULL)
 	{
@@ -425,12 +491,12 @@ struct npc* npc_upload(char name)
 	fclose(main_adr_fp);
 	
 	
-	log = "fclose main_adr_fp\n";
+	//log = "fclose main_adr_fp\n";
 	PRINT_LOG
 
 	FILE *dial_adr_fp = fopen(dial_adr, "r");
 
-	log = "fopen dial_adres_fp\n";
+	//log = "fopen dial_adres_fp\n";
 	PRINT_LOG	
 	
 	
@@ -455,7 +521,7 @@ struct npc* npc_upload(char name)
 
 	fclose(dial_adr_fp);
 	
-	log = "fclose dial_adres_fp\n";
+	//log = "fclose dial_adres_fp\n";
 	PRINT_LOG
 
 	//далее подгрузка лица персонажа в окне диалога
@@ -592,7 +658,7 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, lo
 	//если остановка из-за 'В', то конец ветки
 	if(cur_dial[cur_pos] == 'B')
 	{
-		log = "	END nashel B !!\n";		PRINT_LOG
+		//log = "	END nashel B !!\n";		PRINT_LOG
 		while(cur_dial_num != dial_max)
 		{
 			free(cur_br->phrase[cur_dial_num]);			
@@ -614,7 +680,7 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, lo
 		cur_br->npc_phrase[i++] = cur_dial[cur_pos++];
 	}
 		
-	log = cur_br->npc_phrase; 		PRINT_LOG	//принт фразы в лог
+	//log = cur_br->npc_phrase; 		PRINT_LOG	//принт фразы в лог
 	//log = "\nstart of while  4 \n"; 		PRINT_LOG 
 
 	//надо дописать условие и вообще этот цикл сырой :(
@@ -627,15 +693,15 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, lo
 		
 		V_SKIP('(')
 		
-		log = "SKIP '('\n"; 		PRINT_LOG
+		//log = "SKIP '('\n"; 		PRINT_LOG
 				/// тут будут условия появления фразы
 		V_SKIP(')')
  		
- 		log = "SKIP ')'\n"; 		PRINT_LOG
+ 		//log = "SKIP ')'\n"; 		PRINT_LOG
  		
 		V_SKIP('"')
 
-		log = "SKIP ' '' '\n"; 		PRINT_LOG
+		//log = "SKIP ' '' '\n"; 		PRINT_LOG
 
 		//log = "start of while 4.1 \n"; 		PRINT_LOG
 		
@@ -646,18 +712,18 @@ struct dial_tree_br* dial_upload(char* cur_dial, struct dial_tree_br* par_br, lo
 		cur_pos++;
 
 		V_SKIP('{') // { - символ новой ветки, рекурсивно ее вызываем
-		log = "SKIP ' { '\n"; 		PRINT_LOG
+		//log = "SKIP ' { '\n"; 		PRINT_LOG
 		
-		log = "\n DIAL UPLOAD AGAIN\n"; 		PRINT_LOG
+		//log = "\n DIAL UPLOAD AGAIN\n"; 		PRINT_LOG
 		cur_br->br = dial_upload(cur_dial, cur_br, cur_pos);
 
 		V_SKIP('}')  // когда ветка со всеми ее последующими вызовами кончается, ищем } - конец ветки
-		log = "SKIP ' } '\n"; 		PRINT_LOG
+		//log = "SKIP ' } '\n"; 		PRINT_LOG
 	
 		cur_dial_num++;
 		
 		log_fp = fopen("log.txt", "a");
-		fprintf(log_fp, "	CUR_dial_num = %d\n", cur_dial_num);
+		//fprintf(log_fp, "	CUR_dial_num = %d\n", cur_dial_num);
 		fclose(log_fp);	
 		//и всем этим делом мы заимаемся, пока выполняется условие, которое надо доработать 
 	}
@@ -711,6 +777,8 @@ void open_inventory (void)
 	const int cat_x = 2;
 	const int cat_y = 2;
 	
+	const int list_size = 30;
+	
 	FILE* inv_fp;
 	
 	//инициализация окошек для инвентаря
@@ -742,61 +810,20 @@ void open_inventory (void)
 	
 	//инициализация адреса
 	sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[0].cat, "/inv_", Hero.inventory[0].id, ".txt");
+	
+	log_fp = fopen("log.txt", "a");
+	fprintf(log_fp, "%s", item_adres);
+	fclose(log_fp);
+	
 	inv_fp = fopen(item_adres, "r");  
 	
-	for (i = 0; Hero.inventory[i].id != 0; i++)
-	{	
-		//обработка даных из файлов с предметами
-		sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[i].cat, "/inv_", Hero.inventory[i].id, ".txt");
-		freopen(item_adres, "r", inv_fp); 
-		fscanf(inv_fp, "%[^\n]", item_data);		fgetc(inv_fp);
-		fscanf(inv_fp, "%[^=]", item_data);		fgetc(inv_fp);
-		fscanf(inv_fp, "%[^\n]", item_data);		fgetc(inv_fp);
 		
-		if (i < 30)
-		{
-			mvwprintw(win_list, 1 + i, 5, "%s", item_data); 	
-			wrefresh(win_list);
-		}
-		else
-		{
-			mvwprintw(win_list2, 1 + i%30, 5, "%s", item_data); 
-			wrefresh(win_list2);	
-		}
-	}
-	
-	i--; //это нужно т.к. i в конце уходит на нулевой предмет
-	
-	if (i < 30)		//обозначаем максимальные позиции для обоих листов
-		max_pos1 = i;
-	else
-	{
-		max_pos1 = 29;
-		max_pos2 = i - 30;
-	}
-	
-	//вывод начального содержания на экран, если инвентарь не пустой
-	if (Hero.inventory[0].id != 0)
-	{
-		mvwprintw(win_list, cur_pos_y, cur_pos_x, "-->");
-		//вывод инфы на win_descr
-		sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[0].cat, "/inv_", Hero.inventory[0].id, ".txt");
-		freopen(item_adres, "r", inv_fp); 
-		//название
-		PRINT_INV_DESCR_NAME
-		//категория
-		PRINT_INV_DESCR_CAT
-							
-	}
-		
-	top_panel(pan_list);
-	update_panels();
-	doupdate();
+	DRAW_INV
 	
 	
 	//надо прописать навигацию в менюшке 
 	
-	//e(enter) - надеть/снять
+	//e - написать отрисовку!
 	//r - выкинуть	
 	
 	//обработка действий пользователя
@@ -808,7 +835,7 @@ void open_inventory (void)
 	while((cur_sym != 'q')&&(cur_sym != 'i'))
 	{                
     	cur_sym = getch();
-    	    	
+    	//MOVE UP
     	if( ((cur_sym == 'w')||(cur_sym == KEY_UP)) && (cur_pos > 0) )
 			{
 				if (count_list == 1)
@@ -846,7 +873,8 @@ void open_inventory (void)
 					wrefresh(win_descr);
 				}
 			}
-		if( ((cur_sym == 's')||(cur_sym == KEY_DOWN)) && (cur_pos < 29) )
+		//MOVE DOWN
+		if( ((cur_sym == 's')||(cur_sym == KEY_DOWN)) && (cur_pos < (list_size-1)) )
 			{		
 				if ( (count_list == 1)&&(cur_pos < max_pos1) )
 				{
@@ -882,7 +910,9 @@ void open_inventory (void)
 					wrefresh(win_descr);
 				}
 			}
+		//MOVE TO LIST 1
 		if( ( ((cur_sym == 'd')||(cur_sym == KEY_RIGHT)) ) && (count_list != 1) && (Hero.inventory[0].id!=0) )
+		//проверка на нулевость первого итема при нахождении на второй странице немношк глупая..
 			{
 				mvwprintw(win_list2, cur_pos_y, cur_pos_x, "   ");
 				wrefresh(win_list2);
@@ -903,7 +933,8 @@ void open_inventory (void)
 				update_panels();
 				doupdate();
 			}
-		if( ( ((cur_sym == 'a')||(cur_sym == KEY_LEFT)) ) && (count_list != 2) && (Hero.inventory[30].id!=0) )
+		//MOVE TO LIST 2
+		if( ( ((cur_sym == 'a')||(cur_sym == KEY_LEFT)) ) && (count_list != 2) && (Hero.inventory[list_size].id!=0) )
 			{
 				mvwprintw(win_list, cur_pos_y, cur_pos_x, "   ");
 				wrefresh(win_list);
@@ -924,11 +955,73 @@ void open_inventory (void)
 				update_panels();
 				doupdate();
 			}
+		//REMOVE
+		if ((cur_sym == 'r')&&(Hero.inventory[0].id != 0))
+		{
+			if (count_list ==1)
+			{
+				//меняем херо инвентори
+				i = cur_pos;
+				do
+				{
+					Hero.inventory[i] = Hero.inventory[i+1];
+					i++;
+				}
+				while(Hero.inventory[i].id != 0);
+				
+				//стираем все и отрисовываем заново
+				werase(win_list);
+				werase(win_descr);
+				box(win_list, 0, 0);
+				box(win_descr, 0, 0);
+				
+				DRAW_INV
+				
+			}
+			if (count_list ==2)
+			{
+				//меняем херо инвентори
+				i = cur_pos + list_size;
+				do
+				{
+					Hero.inventory[i] = Hero.inventory[i+1];
+					i++;
+				}
+				while(Hero.inventory[i].id != 0);
+				
+				werase(win_list);
+				werase(win_descr);
+				box(win_list, 0, 0);
+				box(win_descr, 0, 0);
+				
+				
+				
+			}
+		}
+		
+		//не все так просто !! дописывать момент с cur_equip
+		if (cur_sym == 'e')
+		{
+			if ( count_list == 1)
+			{
+				if (Hero.inventory[cur_pos].is_equip == 0)
+					Hero.inventory[cur_pos].is_equip == 1;
+				else if (Hero.inventory[cur_pos].is_equip == 1)
+					Hero.inventory[cur_pos].is_equip == 0;
+			}
+			if ( count_list == 2)
+			{
+				if (Hero.inventory[cur_pos + list_size].is_equip == 0)
+					Hero.inventory[cur_pos + list_size].is_equip == 1;
+				else if (Hero.inventory[cur_pos + list_size].is_equip == 1)
+					Hero.inventory[cur_pos + list_size].is_equip == 0;				
+			}
+		}
 	} 
+	
 	
 	//завершение работы инвентаря
 	fclose(inv_fp);
-	
 	free(item_adres);
 	free(item_data);
 	
@@ -1115,7 +1208,7 @@ void map_upload(FILE *cur_map_f)
 			cur_sym = getch();
 			print_map(cur_map, stats_bar);
 			
-			print_npc(cur_loc_npc); //!чекать работу!
+			//print_npc(cur_loc_npc); 
 			
 			border_trigger = player_command(cur_sym, cur_map);
     		refresh();                   
