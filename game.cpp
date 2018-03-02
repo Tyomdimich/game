@@ -257,7 +257,7 @@ FILE* log_fp;
 //! v. 0.0.7 да кто вообще смотрит а эти версии? кому они сдались? какой в них смысл? :} 
 //! Tyomdimich edition
 //! 
-//!---------------------------------------------------------------M  A  I  N-------
+//!-------------------------------------------------------M  A  I  N------------------------------------------
 int main()
 {
 	int cur_sym = 0;
@@ -284,7 +284,7 @@ int main()
 
 	//printw("For exit press 'q' \n");  
 
-	map_upload(fopen("maps/map1_1.txt", "r"));
+	map_upload(fopen("maps/map_1_1_spawn.txt", "r"));
 
     endwin();                    
     return 0;
@@ -818,11 +818,63 @@ void open_inventory (void)
 	inv_fp = fopen(item_adres, "r");  
 	
 		
-	DRAW_INV
+	//DRAW_INV
+	
+	for (i = 0; Hero.inventory[i].id != 0; i++)	\
+	{
+		/*обработка даных из файлов с предметами*/
+		sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[i].cat, "/inv_", Hero.inventory[i].id, ".txt");
+		freopen(item_adres, "r", inv_fp);
+		fscanf(inv_fp, "%[^\n]", item_data);		fgetc(inv_fp);
+		fscanf(inv_fp, "%[^=]", item_data);		fgetc(inv_fp);
+		fscanf(inv_fp, "%[^\n]", item_data);		fgetc(inv_fp);
+	
+		if (i < list_size)
+		{
+			mvwprintw(win_list, 1 + i, 5, "%s", item_data);
+			wrefresh(win_list);
+		}
+			else
+		{
+			mvwprintw(win_list2, 1 + i%30, 5, "%s", item_data);
+			wrefresh(win_list2);
+		}
+	}
+	//в два окошко выписали все предметы, но пока не обновили	
+	
+	i--; /*это нужно т.к. i в конце уходит на зануленную ячейку*/
+	
+	if (i < list_size)		/*обозначаем максимальные позиции для обоих листов*/
+	{
+		max_pos1 = i;
+		max_pos2 = 0;
+	}
+	else
+	{
+		max_pos1 = list_size - 1;
+		max_pos2 = i - list_size;
+	}
+	
+	/*вывод начального содержания на экран, если инвентарь не пустой*/
+	if (Hero.inventory[0].id != 0)
+	{
+		mvwprintw(win_list, cur_pos_y, cur_pos_x, "-->");
+		/*вывод инфы на win_descr*/
+		sprintf(item_adres, "%s%d%s%d%s", "inventory/inv_", Hero.inventory[0].cat, "/inv_", Hero.inventory[0].id, ".txt");
+		freopen(item_adres, "r", inv_fp);
+		/*название*/
+		PRINT_INV_DESCR_NAME
+		/*категория*/
+		PRINT_INV_DESCR_CAT
+	
+	}
+	
+	top_panel(pan_list);
+	update_panels();
+	doupdate();
 	
 	
 	//надо прописать навигацию в менюшке 
-	
 	//e - написать отрисовку!
 	//r - выкинуть	
 	
